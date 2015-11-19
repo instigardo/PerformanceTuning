@@ -98,5 +98,16 @@ public class SQLHelper {
 		return 0;
 	}
 
+
+
+	/**
+	 * @param string
+	 * @return
+	 */
+	public ResultSet query(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 
