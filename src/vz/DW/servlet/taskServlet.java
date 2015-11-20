@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import vz.parser.helper.SQLHelper;
 import vz.DW.Rules.GetSql;
 import vz.DW.Rules.Rules;
+import vz.DW.Servlets_n_Main.ScoreMain;
 import vz.hackathon.logic.TaskManagement;
 
 /**
@@ -48,15 +49,16 @@ public class taskServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 
-
+ScoreMain sm=new ScoreMain();
 Rules rules=new Rules();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
 		String sql=request.getParameter("sql");
 		GetSql getsql=new GetSql();
 		getsql.sqlFromServlet(sql);
-		rules.rule_5_FunctionsInConditions(sql);
-		response.sendRedirect("../hackathon/pages/dashboard.jsp");
+		sm.scoreParameterCalc(sql);
+		
+		response.sendRedirect("pages/analysis.jsp");
 	}
 
 }

@@ -75,7 +75,7 @@
 		alert('submoitted');
 	}
 </script>
-<body>
+<body onload="score()">
 
     <div id="wrapper" >
 
@@ -167,9 +167,10 @@
                         <li>
                             <a href="dashboard.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                       
                         <li>
-                       
+                            <a href="analysis.jsp"><i class="fa fa-dashboard fa-fw"></i> Analysis Report</a>
+                        </li>
+                        <li>
                             <a href="addRule.jsp" class="default_popup"><i class="fa fa-edit fa-fw"></i> Add Rule </p></a>
                         </li>
                        
@@ -183,35 +184,33 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Analysis Report</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <div class="row">
-             <div class="col-lg-12">
+             <div class="col-lg-3">
                        <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-sign-out  fa-fw"></i> Input Sql Query
+                            <i class="fa fa-sign-out  fa-fw"></i> Sql Performance Score
                                    <div id="show">
            						   </div>
  						</div>
- 						<div class="panel-body">
- 						 <form role="form" action="../taskServlet" method="post" id="tasker">
- 						   <div class="form-group">
-                              <textarea class="form-control" rows="3" name="sql" placeholder="Input the Sql"></textarea>
-                           </div>
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-                           <button type="reset" class="btn btn-default">Reset Button</button>
- 						</form>
+ 						<div class="panel-body" id="score" style="text-align: center;">
+							
  						</div>
  					</div>
 		 	</div> 
-
+             <div class="col-lg-9">
+            	 <div id="scoreInfo">
+            	 	<!-- Table data -->
+            	 </div>
+		 	</div> 
 		 </div>        
          <!-- /.row -->
-
+            
         </div>
         <!-- /#page-wrapper -->
 
@@ -292,6 +291,16 @@
     </script>
 
 </body>
+<script type="text/javascript">
 
+	function score(){
+  		alert('here');
+
+  	  var divTag = document.getElementById('scoreInfo');
+  	divTag.innerHTML='<%= sm.getTable() %>';
+  	  var divTag2 = document.getElementById('score');
+  	divTag2.innerHTML='<%= sm.getScore()  %>/<%= sm.getScoreMM()  %>';
+	}
+</script>
 </html>
 

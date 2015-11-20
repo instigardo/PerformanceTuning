@@ -122,40 +122,58 @@ public class Parse {
 	String used[]=new String [4000];
 	int count=0;
 	boolean a=false;
+	static int ids[]=new int[10000];
+	
+	public int[] getIds() {
+		return ids;
+	}
+
+	public void setIds(int[] ids) {
+		this.ids = ids;
+	}
+
 	public String[] extractKeywords(String str, String[] keywords) throws IOException{
 		int index=0;
 		boolean sql=false;
 		String extractKeywords[]=new String[50000] ;
 		String SQLKeywords[]=keywords;
-		String SQLWords[]=sqlWordExtractor(str);		
+		String SQLWords[]=sqlWordExtractor(str);
+
 		/*****************************************/	
 		for (int j = 0; j<SQLWords.length; j++) {
 
 			for (int j2 = 0; j2<SQLKeywords.length; j2++) {
-				if(SQLWords[j].equals(SQLKeywords[j2])){
-					for(int k=0;k<used.length;k++){
+				if(SQLWords[j].equals("NULL"))
+					continue;
+				else if(SQLWords[j].equals(SQLKeywords[j2])){
+				/*	for(int k=0;k<used.length;k++){
 						if(SQLWords[j].equals(used[k]) &&  used[k]!=null){
 							a=true;
 							
 						}
 					}
 					if(!a){
-						sql=true;
+						sql=true;*/
+					
 						extractKeywords[index]=SQLWords[j];
-						used[count]=SQLWords[j];
-						count++;
+						ids[index]=j;
+						//used[count]=SQLWords[j];
+						//count++;
 						index++;
-						a=false;
+						//a=false;
 						break;
-					}else a=false;
+					//}else a=false;
 				}
 				if(j2==1059)
 					break;	
 			}
 		}
 		/*******************************************/	
+		
 		return extractKeywords;
 	}
+	
+	
 
 	public String formatter(String str){
 		str=str.toUpperCase();

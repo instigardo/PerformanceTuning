@@ -13,7 +13,7 @@ public class ConnectionGetter
 	{
 	try{
 		Class.forName("com.teradata.jdbc.TeraDriver");
-		con = DriverManager.getConnection("jdbc:teradata://138.83.86.91", "guptde2", "k3CniDkB" );
+		con = DriverManager.getConnection("jdbc:teradata://138.83.86.91", "saxenhi", "Demon!c" );
 
 		//System.out.println("sddsad");
 		

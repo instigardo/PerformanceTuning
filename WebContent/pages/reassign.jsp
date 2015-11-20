@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <%@page import="vz.hackathon.logic.*"%>
 <%@page import="vz.parser.helper.SQLHelper"%>
-<%@page import="vz.parser.helper.Identifier"%>
 <%@page import="javax.websocket.Session"%>
+<%@page import="vz.parser.helper.Identifier"%>
 <%@page import="java.sql.*"%>
 
 <html lang="en">
